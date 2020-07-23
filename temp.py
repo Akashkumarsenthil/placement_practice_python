@@ -376,9 +376,13 @@ for i in arr:
 return h
 
 
+a = [1,2,3,4,5]
+d = 4
+a = [ a[(d+i)%len(a)] for i in range(len(a))]
 
    
-
+if d == 4 or d == 2:
+    print(True)
 
 
 

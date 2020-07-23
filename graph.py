@@ -8,8 +8,6 @@ Created on Tue Jul 21 19:31:50 2020
 
 from collections import defaultdict
 
-graph = defaultdict(list)
-
 class Graph:
     def __init__(self):
         self.graph = defaultdict(list)
@@ -25,7 +23,11 @@ class Graph:
                 self.DFSUtil(i,visited)
     
     def DFS(self, v):
+        V = self.graph
         visited = [False] * (max(self.graph) + 1)
+        for i in range(V):
+            if visited[i] == False:
+                self.DFSUtil(v,visited)
         self.DFSUtil(v, visited)
 
 g = Graph()
@@ -35,7 +37,30 @@ g.addEdge(1, 2)
 g.addEdge(2, 0) 
 g.addEdge(2, 3) 
 g.addEdge(3, 3) 
-g.DFS(2)
+g.DFS(0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
