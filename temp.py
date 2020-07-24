@@ -384,7 +384,8 @@ a = [ a[(d+i)%len(a)] for i in range(len(a))]
 if d == 4 or d == 2:
     print(True)
 
-
+for i, j in enumerate(a):
+    print(i,j)
 
 
 
