@@ -66,7 +66,7 @@ for _ in range(int(input().strip())):
 
 from statistics import median 
 a = [6, 7, 8, 9, 10,1, 2, 3, 4, 5]
-a.sort()
+a[:8]
 i = 1
 while(i <= len(a)):
     tem = a[:i]
@@ -81,8 +81,17 @@ max(arr[:k])
 min(arr[(len(arr)-k):])
 print((max(arr[:k]) - min(arr[(len(arr)-k):])))
 
+def runningMedian(a):
+    a.sort()
+    i = 1
+    arr = []
+    while(i <= len(a)):
+        arr.append(float(median(a[:i])))
+        i += 1
+    return arr
 
+arr = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]
 
-
-
+for i in range(len(arr)):
+    print(i)
 
