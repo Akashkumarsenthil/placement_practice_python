@@ -75,7 +75,7 @@ while(i <= len(a)):
     
 
 arr = [6, 7, 8, 9, 10,1, 2, 3, 4, 5]
-arr.sort()
+sorted(arr)
 k = 4
 max(arr[:k])
 min(arr[(len(arr)-k):])
@@ -94,4 +94,77 @@ arr = [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]
 
 for i in range(len(arr)):
     print(i)
+
+
+
+from collections import Counter
+myList = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+print(Counter(myList).items)
+
+
+def minimumAbsoluteDifference(arr):
+    # com = list(combinations(arr, 2))
+    return(min([abs(i[0] - i[1]) for i in list(permutations(arr, 2))]))
+
+
+ord('a')
+
+arr = set([i for i in range(8)])
+arr.remove(1)
+
+
+
+
+
+if 2 in arr:
+    arr.remove(2)
+
+
+
+print(list(input()))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
