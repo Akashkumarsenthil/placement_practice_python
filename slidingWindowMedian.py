@@ -5,8 +5,6 @@ Created on Sun Aug  2 13:07:43 2020
 
 @author: akashkumar
 """
-import statistics
-
 arr = [-1, 5, 13, 8, 2, 3, 3, 1]
 n = len(arr)
 k = 3
@@ -25,6 +23,6 @@ def median(arr):
         
 for i in range(n-k+1):
     window = arr[i:i+k]
-    ans.append(statistics.median(window))
+    ans.append(median(window))
     
 
