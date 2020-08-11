@@ -25,4 +25,6 @@ for i in range(n-k+1):
     window = arr[i:i+k]
     ans.append(median(window))
     
+    
+    
 
