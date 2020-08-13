@@ -38,20 +38,84 @@ class LinkedList:
 
         current.next = new_node
         
-    def deleteNode(self, key):
-        current = self.head
-        
-        while current is not None:
-            if current.data == None:
+    def deleteNode(self, key):  
+        temp = self.head  
+        if temp is not None:  
+            if (temp.data == key):  
+                self.head = temp.next
+                temp = None
+                return
+        while(temp is not None):  
+            if temp.data == key:  
                 break
-            prev = current
-            current = current.next
-        if current == None:
+            prev = temp  
+            temp = temp.next
+        if(temp == None):  
+            return
+        prev.next = temp.next
+  
+        temp = None
+        
+    def deleteNthNode(self, pos):
+        if self.head is None:
+            return
+        temp = self.head
+        if pos == 0:
+            self.head = temp.next
+            temp = None
+            return
+        for _ in range(pos-1):
+            temp = temp.next
+            if temp is None:
+                break
+        if temp is None:
             return 
-        prev.next = current.next
+        if temp.next is None:
+            return
+        n = temp.next.next
+        temp.next = None
+        temp.next = n
         
-
+    def deleteNthFromEnd(self, pos):
+        temp = self.head
+        if temp is None:
+            return
+        l = 0
+        while temp is not None:
+            l += 1
+            temp = temp.next
+        c = l - pos
+        if c < 0:
+            return
+        temp = self.head
+        if c == 0:
+            self.head = temp.next
+            temp = None
+            return
+        for _ in range(c-1):
+            temp = temp.next
+            if temp is None:
+                break
+        if temp is None:
+            return
+        if temp.next is None:
+            return
+        x = temp.next.next
+        temp.next = None
+        temp.next = x
         
+    def reverseLinkedList(self):
+        p = self.head
+        if self.head is None:
+            return
+        q = p.next
+        if q == None:
+            return 
+        q = self.reverseLinkedList(q)
+        p.next.next = p
+        p.next = None
+        
+        return q
         
     def searchEle(self, ele):
         current = self.head
@@ -118,9 +182,14 @@ ll.searchEle(9)
 print(ll.NthNode(4))
 print(ll.NthFromEnd(2))
 ll.printList()
-ll.deleteNode(1)
+ll.deleteNode(100)
 ll.printList()
-
+ll.deleteNthNode(2)
+ll.printList()
+ll.deleteNthFromEnd(4)
+ll.printList()
+ll.reverseLinkedList()
+ll.printList()
 
 
 
