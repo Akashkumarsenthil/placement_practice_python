@@ -35,7 +35,6 @@ class LinkedList:
             return
         while current.next:
             current = current.next
-
         current.next = new_node
         
     def deleteNode(self, key):  
@@ -53,7 +52,6 @@ class LinkedList:
         if(temp == None):  
             return
         prev.next = temp.next
-  
         temp = None
         
     def deleteNthNode(self, pos):
@@ -105,17 +103,14 @@ class LinkedList:
         temp.next = x
         
     def reverseLinkedList(self):
-        p = self.head
-        if self.head is None:
-            return
-        q = p.next
-        if q == None:
-            return 
-        q = self.reverseLinkedList(q)
-        p.next.next = p
-        p.next = None
-        
-        return q
+        prev = None
+        current = self.head
+        while(current is not None):
+            temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        self.head = prev
         
     def searchEle(self, ele):
         current = self.head
@@ -126,6 +121,29 @@ class LinkedList:
             current = current.next
         print("element Not Present")
         return False
+    
+    def palindrome(self):
+        small = self.head
+        big = self.head
+        while(1):
+            big = big.next
+            if big.next is None:
+                second = small.next.next
+                break
+            if big is None:
+                second = small.next
+                break
+            small = small.next
+        small.next = None
+        small = self.head
+        while small is not None:
+            print(small.data, end = " ")
+            small = small.next
+        print()
+        while second is not None:
+            print(second.data, end = " ")
+            second = second.next
+        print()
             
             
     def NthNode(self, n):
@@ -172,7 +190,7 @@ ll.printList()
 ll.push(5)
 ll.push(4)
 ll.push(1)
-ll.push(100)
+ll.push(10)
 ll.printList()
 ll.insertAfter(ll.head.next, 3)
 ll.printList()
@@ -182,6 +200,10 @@ ll.searchEle(9)
 print(ll.NthNode(4))
 print(ll.NthFromEnd(2))
 ll.printList()
+print("-----------")
+ll.palindrome()
+print("-----------")
+ll.printList()
 ll.deleteNode(100)
 ll.printList()
 ll.deleteNthNode(2)
@@ -190,6 +212,8 @@ ll.deleteNthFromEnd(4)
 ll.printList()
 ll.reverseLinkedList()
 ll.printList()
+ll.palindrome()
+
 
 
 
