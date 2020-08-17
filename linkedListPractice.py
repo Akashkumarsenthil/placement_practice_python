@@ -126,24 +126,9 @@ class LinkedList:
         small = self.head
         big = self.head
         while(1):
-            big = big.next
-            if big.next is None:
-                second = small.next.next
-                break
-            if big is None:
-                second = small.next
-                break
             small = small.next
-        small.next = None
-        small = self.head
-        while small is not None:
-            print(small.data, end = " ")
-            small = small.next
-        print()
-        while second is not None:
-            print(second.data, end = " ")
-            second = second.next
-        print()
+            big = big.next.next
+            
             
             
     def NthNode(self, n):
